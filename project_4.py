@@ -82,7 +82,21 @@ st.bar_chart(salary_crosstab)
 
 # Chart 2: Department vs Retention
 st.subheader("Department vs Employee Retention")
-dept_crosstab = pd.crosstab(df['sales'], df['left'])
+# dept_crosstab = pd.crosstab(df['sales'], df['left'])
+# Detect department column automatically
+if 'Department' in df.columns:
+    dept_col = 'Department'
+elif 'department' in df.columns:
+    dept_col = 'department'
+elif 'sales' in df.columns:
+    dept_col = 'sales'
+else:
+    st.write("Available columns:", df.columns.tolist())
+    st.error("Department/Sales column not found!")
+    st.stop()
+
+dept_crosstab = pd.crosstab(df[dept_col], df['left'])
+st.bar_chart(dept_crosstab)
 st.bar_chart(dept_crosstab)
 # if 'Department' in df.columns:
 #     dept_col = 'Department'
