@@ -23,9 +23,26 @@ st.set_page_config(
 )
 
 # 2. UI Titles & Info
-st.title("Employee Retention Analysis")
-st.write("Predicting employee turnover using Logistic Regression.")
+# st.title("Employee Retention Analysis")
+# st.write("Predicting employee turnover using Logistic Regression.")
+st.markdown("""
+<div style="
+background:linear-gradient(90deg,#4facfe,#00f2fe);
+padding:20px;
+border-radius:15px;
+text-align:center;
+box-shadow:0px 5px 20px rgba(0,0,0,0.3);">
 
+<h1 style="color:white;">
+👨‍💼 Employee Retention Analysis Dashboard
+</h1>
+
+<h4 style="color:white;">
+Predict Employee Turnover using Logistic Regression
+</h4>
+
+</div>
+""", unsafe_allow_html=True)
 st.markdown("---")
 st.markdown("""
 👨‍💻 **Developed By:** RICHEEK_PANDEY
