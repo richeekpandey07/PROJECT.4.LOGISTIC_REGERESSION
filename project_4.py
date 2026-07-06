@@ -44,7 +44,7 @@ try:
     # st.stop()
 import os
 
-try:
+# try:
     DATA_PATH = os.path.join(os.path.dirname(__file__), "HR_comma_sep (2).csv")
     df = pd.read_csv(DATA_PATH)
 
