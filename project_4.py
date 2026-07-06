@@ -84,7 +84,16 @@ st.bar_chart(salary_crosstab)
 st.subheader("Department vs Employee Retention")
 dept_crosstab = pd.crosstab(df['sales'], df['left'])
 st.bar_chart(dept_crosstab)
+if 'Department' in df.columns:
+    dept_col = 'Department'
+elif 'sales' in df.columns:
+    dept_col = 'sales'
+else:
+    st.error(f"Department column not found. Available columns: {list(df.columns)}")
+    st.stop()
 
+dept_crosstab = pd.crosstab(df[dept_col], df['left'])
+st.bar_chart(dept_crosstab)
 # --- MODEL TRAINING ---
 X = df[['satisfaction_level', 'average_montly_hours', 'promotion_last_5years', 'salary']].copy()
 
