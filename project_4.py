@@ -35,13 +35,22 @@ st.markdown("""
 
 # 3. Load dataset safely
 try:
-    import os
-DATA_PATH = os.path.join(os.path.dirname(__file__), "HR_comma_sep (2).csv")
-df = pd.read_csv(DATA_PATH)
-except FileNotFoundError:
-    st.error("❌ Error: 'HR_comma_sep (2).csv' not found. Please place the data file in the same directory as this script.")
-    st.stop()
+#     import os
+# DATA_PATH = os.path.join(os.path.dirname(__file__), "HR_comma_sep (2).csv")
+# df = pd.read_csv(DATA_PATH)
+# except FileNotFoundError:
+#     st.error("❌ Error: 'HR_comma_sep (2).csv' not found. Please place the data file in the same directory as this script.")
+#     st.stop()
+    # st.stop()
+import os
 
+try:
+    DATA_PATH = os.path.join(os.path.dirname(__file__), "HR_comma_sep (2).csv")
+    df = pd.read_csv(DATA_PATH)
+
+except FileNotFoundError:
+    st.error("❌ Error: 'HR_comma_sep (2).csv' not found.")
+    st.stop()
 # --- DATA EXPLORATION ---
 st.header("📊 Data Exploration")
 
